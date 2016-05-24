@@ -10,7 +10,7 @@ define(['knockout'], function (ko) {
   ko.bindingHandlers.sliderValue = {
     // Init, runs on initialization 
     init: function ( element, valueAccessor, allBindings, viewModel, bindingContext ) {
-      if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement) && ( element.type === "range" ) )
+      if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement ) && ( element.type === "range" ) )
       {
         // Add event listener to the slider, this will update the observable on input (just moving the slider),
         // Otherwise, you have to move the slider then release it for the value to change 
@@ -28,7 +28,7 @@ define(['knockout'], function (ko) {
     // Update, runs whenever observables for this binding change(and on initialization)
     update: function ( element, valueAccessor, allBindings, viewModel, bindingContext ) {
       // Make sure the parameter passed is an observable 
-      if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement) && ( element.type === "range" ) )
+      if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement ) && ( element.type === "range" ) )
       {
         // Update the slider value (so if the value changes programatically, the slider will update)
         element.value = ko.unwrap( valueAccessor() );
@@ -47,7 +47,7 @@ define(['knockout'], function (ko) {
     // Init, runs on initialization 
     init: function ( element, valueAccessor, allBindings, viewModel, bindingContext ) {
       // Setup the initial maximum value if it is not an observable
-      if ( !ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement) && ( element.type === "range" ) )
+      if ( !ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement ) && ( element.type === "range" ) )
       {
         element.max = valueAccessor(); // Not an observable 
       }
@@ -57,7 +57,7 @@ define(['knockout'], function (ko) {
     // Update, runs whenever observables for this binding change (and on initialization)
     update: function ( element, valueAccessor, allBindings, viewModel, bindingContext ) {
       // Update function is only meant for observables
-      if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement) && ( element.type === "range" ) )
+      if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement ) && ( element.type === "range" ) )
       {
         // Make sure slider value is not too large
         if ( element.value > ko.unwrap( valueAccessor() ) )
