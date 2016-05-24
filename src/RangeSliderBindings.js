@@ -27,10 +27,11 @@ ko.bindingHandlers.sliderValue = {
     {
       // Update the slider value (so if the value changes programatically, the slider will update)
       element.value = ko.unwrap( valueAccessor() );
+      element.dispatchEvent( new Event('input') );
     }
   } // End update 
   
-};
+}; // End sliderValue
 
 
 
@@ -66,7 +67,7 @@ ko.bindingHandlers.sliderMax = {
     }
   } // End update 
   
-};
+}; // End sliderMax
 
 
 
@@ -101,7 +102,7 @@ ko.bindingHandlers.sliderMin = {
     }
   } // End update 
   
-};
+}; // End sliderMin
 
 
 
@@ -129,4 +130,4 @@ ko.bindingHandlers.sliderStep = {
     }
   } // End update 
   
-};
+}; // End sliderStep
