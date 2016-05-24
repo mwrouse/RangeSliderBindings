@@ -11,14 +11,13 @@ ko.bindingHandlers.sliderValue = {
       element.addEventListener( 'input', function(){
         // Update the observable 
         valueAccessor()( element.value );
+        
+        // Trigger the change event, awesome fix that makes
+        // changing a dropdown and a range slider function the same way
+        element.dispatchEvent(new Event('change'));
       } ); // End event listener 
-      
-      // Trigger input on change, allows for stuff 
-      element.addEventListener( 'change', function(){
-        element.dispatchEvent( new Event( 'input' ) );
-      } );
-      
     }
+    
   }, // End init 
   
   // Update, runs whenever observables for this binding change(and on initialization)
