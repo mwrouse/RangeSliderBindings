@@ -3,6 +3,7 @@
  * Author: Michael Rouse 
  */
 define(['knockout'], function (ko) {
+  'use strict';
   /**
    * The sliderValue binding allows a slider to easily control an observable 
    */
