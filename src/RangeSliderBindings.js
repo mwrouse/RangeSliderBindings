@@ -11,10 +11,12 @@ ko.bindingHandlers.sliderValue = {
       element.addEventListener( 'input', function(){
         // Update the observable 
         valueAccessor()( element.value );
-        
-        // Trigger the change event, now you can use the change event listener, similar to a select box 
-        element.dispatchEvent( new Event( 'change' ) );
       } ); // End event listener 
+      
+      // Trigger input on change, allows for stuff 
+      element.addEventListener( 'change', function(){
+        element.dispatchEvent( new Event( 'input' ) );
+      } );
       
     }
   }, // End init 
