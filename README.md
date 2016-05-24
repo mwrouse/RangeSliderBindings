@@ -19,5 +19,6 @@ The sliderMax custom binding is a little more specific, it allows you to have an
 ```
 This slider controls the ViewModel.myOtherSliderValue observable, and the slider defined above controls the maximum value that this slider can be.
 
+
 ## Example
 An example is available on [CodePen](http://codepen.io/mwrouse/pen/wWwvmN)
