@@ -12,9 +12,6 @@ define(['knockout'], function (ko) {
     init: function ( element, valueAccessor, allBindings, viewModel, bindingContext ) {
       if ( ko.isObservable( valueAccessor() ) && ( element instanceof HTMLInputElement) && ( element.type === "range" ) )
       {
-        // Set initial slider value (for page load)
-        element.value = ko.unwrap( valueAccessor() );
-        
         // Add event listener to the slider, this will update the observable on input (just moving the slider),
         // Otherwise, you have to move the slider then release it for the value to change 
         element.addEventListener( 'input', function(){
