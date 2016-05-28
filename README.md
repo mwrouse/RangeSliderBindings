@@ -1,11 +1,6 @@
 # Range Slider Bindings
 Custom bindings to better handle range sliders using Knockout.js
 
-## Details 
-These four custom bindings allow you to easily control range sliders using knockout.js observables. They will change the value of the slider if you change its observable programatically, and will change the value if needed at initialization (value cannot start out of range).
-
-Range sliders are different then drop down boxes, or check boxes. To trigger a ```change``` event on a slider, you need to change the value and then release the mouse, this is frustrating because if you want an observable to update as you move a slider, you need to use a different event, ```input```. This can make using range inputs frustrating because it's slighly different than other inputs. Using the ```sliderValue``` binding, makes it so that the ```change``` event is the same as the ```input``` event, making your life easier if you need that event listener.
-
 ## Syntax
 This library contains four Knockout.js custom bindings, ```sliderValue```, ```sliderMax```, ```sliderMin```, and ```sliderStep```. 
 
@@ -37,6 +32,9 @@ Last, but not least, ```sliderStep``` allows you to have an observable, or fixed
 ```html
 <input type="range" data-bind="sliderValue: mySliderValue, sliderStep: anotherObservable">
 ```
+
+## Event Listeners 
+Range sliders are different then drop down boxes, or check boxes. To trigger a ```change``` event on a slider, you need to change the value and then release the mouse, this is frustrating because if you want an observable to update as you move a slider, you need to use a different event, ```input```. This can make using range inputs frustrating because it's slighly different than other inputs. Using the ```sliderValue``` binding, makes it so that the ```change``` event is the same as the ```input``` event, making your life easier if you need that event listener.
 
 ## Example
 An example is available on [CodePen](http://codepen.io/mwrouse/pen/wWwvmN)
