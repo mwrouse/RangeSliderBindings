@@ -10,7 +10,8 @@ ko.bindingHandlers.sliderValue = {
       // Otherwise, you have to move the slider then release it for the value to change 
       element.addEventListener('input', function(){
         // Update the observable 
-        valueAccessor()(element.value);
+        if (valueAccessor()() != element.value)
+          valueAccessor()(element.value);
         
         // Trigger the change event, awesome fix that makes
         // changing a dropdown and a range slider function the same way
