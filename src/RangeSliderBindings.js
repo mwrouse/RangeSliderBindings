@@ -10,12 +10,14 @@ ko.bindingHandlers.sliderValue = {
       // Otherwise, you have to move the slider then release it for the value to change 
       element.addEventListener('input', function(){
         // Update the observable 
-        if (valueAccessor()() != element.value)
+        if (ko.unwrap(valueAccessor()) != element.value)
+        {
           valueAccessor()(element.value);
         
-        // Trigger the change event, awesome fix that makes
-        // changing a dropdown and a range slider function the same way
-        element.dispatchEvent(new Event('change'));
+          // Trigger the change event, awesome fix that makes
+          // changing a dropdown and a range slider function the same way
+          element.dispatchEvent(new Event('change'));
+        }
       }); // End event listener 
     }
     
@@ -27,8 +29,11 @@ ko.bindingHandlers.sliderValue = {
     if ( ko.isObservable(valueAccessor()) && (element instanceof HTMLInputElement) && (element.type === "range") )
     {
       // Update the slider value (so if the value changes programatically, the slider will update)
-      element.value = ko.unwrap(valueAccessor());
-      element.dispatchEvent(new Event('input'));
+      if (element.value != ko.unwrap(valueAccessor()))
+      {
+        element.value = ko.unwrap(valueAccessor());
+        element.dispatchEvent(new Event('input'));
+      }
     }
   } // End update 
   
